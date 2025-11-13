@@ -1,20 +1,23 @@
 import React from 'react';
 import { Search, Plus, Filter as FilterIcon, Users } from 'lucide-react';
 
-const Filter = ({ searchTerm, setSearchTerm }) => {
+const Filter = ({ searchTerm, setSearchTerm, setCurrentPage }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 md:p-6 mb-4 md:mb-6 border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-3 mb-2 border border-gray-200 dark:border-gray-700">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4 md:mb-6">
         <div className="flex items-center space-x-3">
-          <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-3 rounded-xl">
-            <Users className="w-6 h-6 text-white" />
+          <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
+            <Users className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">Employees</h2>
-            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Manage your workforce</p>
+            <h2 className="text-lg font-bold text-gray-800 dark:text-white">Employees</h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Manage your workforce</p>
           </div>
         </div>
-        <button className="flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-200 text-sm md:text-base">
+                <button 
+          onClick={() => setCurrentPage('empreg')}
+          className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200 text-sm"
+        >
           <Plus className="w-5 h-5" />
           <span>Add Employee</span>
         </button>
@@ -29,15 +32,15 @@ const Filter = ({ searchTerm, setSearchTerm }) => {
             placeholder="Search employees by name, ID, designation..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white transition-all"
+            className="w-full pl-10 pr-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white transition-all text-sm"
           />
         </div>
-        <select className="px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        <select className="px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
           <option>Display Name</option>
           <option>Employee No</option>
           <option>Department</option>
         </select>
-        <button className="flex items-center space-x-2 px-4 py-3 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-medium transition-colors">
+        <button className="flex items-center space-x-2 px-3 py-2 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium transition-colors text-sm">
           <FilterIcon className="w-5 h-5" />
           <span>Filter</span>
         </button>

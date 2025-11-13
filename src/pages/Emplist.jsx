@@ -209,7 +209,14 @@ const mockEmployeeData = [
   }
 ];
 
-const Emplist = () => {
+import React, { useState, useEffect } from 'react';
+import Filter from '../components/Filter';
+import Actionbutton from '../components/Actionbutton';
+import Emptable from '../components/Emptable';
+import Pagination from '../components/Pagination';
+import Cards from '../components/Cards';
+
+const Emplist = ({ setCurrentPage }) => {
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -251,7 +258,7 @@ const Emplist = () => {
   };
 
   return (
-    <main className="flex-1 p-4 md:p-6 lg:p-8 overflow-x-hidden">
+    <main className="flex-1 overflow-y-auto overflow-x-hidden p-3">
       <div className="w-full mx-auto">
         
         {/* Header Section with Search */}
