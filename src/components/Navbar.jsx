@@ -14,7 +14,7 @@ const Navbar = ({ darkMode, setDarkMode, sidebarOpen, setSidebarOpen }) => {
               <Menu className="w-6 h-6 text-gray-600 dark:text-gray-300" />
             </button>
             <div className="flex items-center space-x-2 md:space-x-3">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-xl">
+              <div className="bg-linear-to-br from-blue-500 to-purple-600 p-2 rounded-xl">
                 <Users className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
               <div>
@@ -51,7 +51,7 @@ const Navbar = ({ darkMode, setDarkMode, sidebarOpen, setSidebarOpen }) => {
                 <p className="text-xs font-semibold text-gray-800 dark:text-white">0771154849</p>
                 <p className="text-[10px] text-gray-500 dark:text-gray-400">SUPER_ADMIN</p>
               </div>
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-semibold text-xs">
+              <div className="w-8 h-8 rounded-full bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-semibold text-xs">
                 SA
               </div>
             </div>

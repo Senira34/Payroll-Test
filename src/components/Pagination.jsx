@@ -29,7 +29,7 @@ const Pagination = ({
               onClick={() => setCurrentPage(i + 1)}
               className={`px-2.5 py-1 rounded-md font-medium transition-colors text-xs ${
                 currentPage === i + 1
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
+                  ? 'bg-linear-to-r from-blue-500 to-purple-600 text-white shadow-lg'
                   : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
               }`}
             >

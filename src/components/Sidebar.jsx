@@ -3,7 +3,7 @@ import { Grid, FileSpreadsheet, Users, Settings } from 'lucide-react';
 
 const Sidebar = ({ sidebarOpen, setCurrentPage }) => {
   return (
-        <aside className={`${sidebarOpen ? 'w-64' : 'w-0'} transition-all duration-300 overflow-hidden bg-gradient-to-b from-blue-600 to-purple-700 dark:from-gray-800 dark:to-gray-900 h-full shadow-xl`}>
+        <aside className={`${sidebarOpen ? 'w-64' : 'w-0'} transition-all duration-300 overflow-hidden bg-linear-to-b from-blue-600 to-purple-700 dark:from-gray-800 dark:to-gray-900 h-full shadow-xl`}>
             <div className="p-4 space-y-1.5 h-full overflow-y-auto">
         <a href="#" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-white hover:bg-white/10 transition-colors text-sm">
           <Grid className="w-4 h-4" />

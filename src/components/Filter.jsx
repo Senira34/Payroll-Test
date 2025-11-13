@@ -6,7 +6,7 @@ const Filter = ({ searchTerm, setSearchTerm, setCurrentPage }) => {
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-3 mb-2 border border-gray-200 dark:border-gray-700">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4 md:mb-6">
         <div className="flex items-center space-x-3">
-          <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
+          <div className="bg-linear-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
             <Users className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -16,7 +16,7 @@ const Filter = ({ searchTerm, setSearchTerm, setCurrentPage }) => {
         </div>
                 <button 
           onClick={() => setCurrentPage('empreg')}
-          className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200 text-sm"
+          className="flex items-center space-x-2 px-4 py-2 bg-linear-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200 text-sm"
         >
           <Plus className="w-5 h-5" />
           <span>Add Employee</span>

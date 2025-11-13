@@ -10,7 +10,7 @@ const Emptable = ({ employees, formatCurrency, loading }) => {
       ) : (
         <div className="overflow-x-auto max-w-full">
           <table className="w-full min-w-max">
-            <thead className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700">
+            <thead className="bg-linear-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700">
               <tr>
                 <th className="px-3 py-2 text-left text-[10px] font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">Employee No</th>
                 <th className="px-3 py-2 text-left text-[10px] font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">EPF No</th>
@@ -36,7 +36,7 @@ const Emptable = ({ employees, formatCurrency, loading }) => {
                   <td className="px-3 py-1.5 whitespace-nowrap text-gray-700 dark:text-gray-300 text-xs">{employee.epfNo}</td>
                   <td className="px-3 py-1.5 whitespace-nowrap">
                     <div className="flex items-center space-x-2">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-[10px] font-semibold">
+                      <div className="w-6 h-6 rounded-full bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-[10px] font-semibold">
                         {employee.firstName[0]}{employee.lastName[0]}
                       </div>
                       <span className="font-medium text-gray-800 dark:text-white text-xs">{employee.displayName}</span>
