@@ -1,49 +1,49 @@
-import React, { useState } from 'react';
-import { Upload, Plus, X, ArrowLeft } from 'lucide-react';
+import React, { useState } from "react";
+import { Upload, Plus, X, ArrowLeft } from "lucide-react";
 
 const Empregister = ({ setCurrentPage }) => {
   const [formData, setFormData] = useState({
-    empNo: '',
-    displayName: '',
-    category: '',
-    salaryStatus: 'monthly',
-    firstName: '',
-    middleName: '',
-    lastName: '',
-    nic: '',
-    email: '',
-    qualifications: '',
-    gender: '',
-    civilStatus: '',
-    contactNo: '',
-    contactNo2: '',
-    address: '',
-    epfNo: '',
-    salaryType: '',
-    category2: '',
-    department: '',
-    joinDate: '',
-    resignDate: '',
-    leaves: '',
-    remarks: '',
-    bank: '',
-    bankCode: '',
-    branch: '',
-    branchCode: '',
-    accountNo: '',
-    basicSalary: '',
-    incentive: '',
-    budgetAllowance: '',
-    specialIncentive: '',
-    serviceIncentive: '',
-    examiningIncentive: '',
-    adjustment: '',
-    transportFee: '',
-    attendanceBonus: '',
+    empNo: "",
+    displayName: "",
+    category: "",
+    salaryStatus: "monthly",
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    nic: "",
+    email: "",
+    qualifications: "",
+    gender: "",
+    civilStatus: "",
+    contactNo: "",
+    contactNo2: "",
+    address: "",
+    epfNo: "",
+    salaryType: "",
+    category2: "",
+    department: "",
+    joinDate: "",
+    resignDate: "",
+    leaves: "",
+    remarks: "",
+    bank: "",
+    bankCode: "",
+    branch: "",
+    branchCode: "",
+    accountNo: "",
+    basicSalary: "",
+    incentive: "",
+    budgetAllowance: "",
+    specialIncentive: "",
+    serviceIncentive: "",
+    examiningIncentive: "",
+    adjustment: "",
+    transportFee: "",
+    attendanceBonus: "",
     epfAllowed: false,
     leaveAllowed: false,
     inactive: false,
-    etfEpfAllowed: false
+    etfEpfAllowed: false,
   });
 
   const [dynamicIncentives, setDynamicIncentives] = useState([]);
@@ -51,9 +51,9 @@ const Empregister = ({ setCurrentPage }) => {
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -69,25 +69,30 @@ const Empregister = ({ setCurrentPage }) => {
   };
 
   const addDynamicIncentive = () => {
-    setDynamicIncentives([...dynamicIncentives, { id: Date.now(), name: '', amount: '' }]);
+    setDynamicIncentives([
+      ...dynamicIncentives,
+      { id: Date.now(), name: "", amount: "" },
+    ]);
   };
 
   const removeDynamicIncentive = (id) => {
-    setDynamicIncentives(dynamicIncentives.filter(item => item.id !== id));
+    setDynamicIncentives(dynamicIncentives.filter((item) => item.id !== id));
   };
 
   const updateDynamicIncentive = (id, field, value) => {
-    setDynamicIncentives(dynamicIncentives.map(item => 
-      item.id === id ? { ...item, [field]: value } : item
-    ));
+    setDynamicIncentives(
+      dynamicIncentives.map((item) =>
+        item.id === id ? { ...item, [field]: value } : item
+      )
+    );
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
-    console.log('Dynamic Incentives:', dynamicIncentives);
-    alert('Employee saved successfully!');
-    setCurrentPage('emplist');
+    console.log("Form Data:", formData);
+    console.log("Dynamic Incentives:", dynamicIncentives);
+    alert("Employee saved successfully!");
+    setCurrentPage("emplist");
   };
 
   return (
@@ -95,7 +100,7 @@ const Empregister = ({ setCurrentPage }) => {
       {/* Header with Back Button */}
       <div className="mb-3">
         <button
-          onClick={() => setCurrentPage('emplist')}
+          onClick={() => setCurrentPage("emplist")}
           className="flex items-center space-x-2 px-3 py-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-medium transition-colors text-sm shadow-sm"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -104,26 +109,31 @@ const Empregister = ({ setCurrentPage }) => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-3">
-        
-        {/* New User Section */}
+        {/* New User  */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 border-2 border-blue-500">
-          <h2 className="text-sm font-bold text-gray-800 dark:text-white mb-3">NEW USER</h2>
+          <h2 className="text-sm font-bold text-gray-800 dark:text-white mb-3">
+            NEW USER
+          </h2>
           <div className="flex justify-center">
             <div className="relative">
               <div className="w-24 h-24 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
                 {profileImage ? (
-                  <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
+                  <img
+                    src={profileImage}
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                  />
                 ) : (
                   <span className="text-gray-400 text-xs">No Image</span>
                 )}
               </div>
               <label className="absolute bottom-0 right-0 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-1.5 cursor-pointer shadow-lg">
                 <Upload className="w-3.5 h-3.5" />
-                <input 
-                  type="file" 
-                  accept="image/*" 
-                  onChange={handleImageUpload} 
-                  className="hidden" 
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="hidden"
                 />
               </label>
             </div>
@@ -133,11 +143,12 @@ const Empregister = ({ setCurrentPage }) => {
         {/* Main Form Section */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-            
             {/* Left Column */}
             <div className="space-y-3">
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">EMP NO</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  EMP NO
+                </label>
                 <input
                   type="text"
                   name="empNo"
@@ -148,7 +159,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">DISPLAY NAME</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  DISPLAY NAME
+                </label>
                 <input
                   type="text"
                   name="displayName"
@@ -159,7 +172,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">CATEGORY</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  CATEGORY
+                </label>
                 <select
                   name="category"
                   value={formData.category}
@@ -174,7 +189,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">FIRST NAME</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  FIRST NAME
+                </label>
                 <input
                   type="text"
                   name="firstName"
@@ -185,7 +202,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">LAST NAME</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  LAST NAME
+                </label>
                 <input
                   type="text"
                   name="lastName"
@@ -196,7 +215,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">EMAIL</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  EMAIL
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -207,7 +228,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">GENDER</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  GENDER
+                </label>
                 <select
                   name="gender"
                   value={formData.gender}
@@ -222,7 +245,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">CONTACT NO</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  CONTACT NO
+                </label>
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="text"
@@ -242,7 +267,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">ADDRESS</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  ADDRESS
+                </label>
                 <textarea
                   name="address"
                   value={formData.address}
@@ -256,35 +283,43 @@ const Empregister = ({ setCurrentPage }) => {
             {/* Right Column */}
             <div className="space-y-3">
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">SALARY STATUS</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  SALARY STATUS
+                </label>
                 <div className="flex items-center space-x-4">
                   <label className="flex items-center space-x-1.5 cursor-pointer">
                     <input
                       type="radio"
                       name="salaryStatus"
                       value="monthly"
-                      checked={formData.salaryStatus === 'monthly'}
+                      checked={formData.salaryStatus === "monthly"}
                       onChange={handleInputChange}
                       className="w-3.5 h-3.5 text-blue-500"
                     />
-                    <span className="text-xs text-gray-700 dark:text-gray-300">MONTHLY SALARY</span>
+                    <span className="text-xs text-gray-700 dark:text-gray-300">
+                      MONTHLY SALARY
+                    </span>
                   </label>
                   <label className="flex items-center space-x-1.5 cursor-pointer">
                     <input
                       type="radio"
                       name="salaryStatus"
                       value="daily"
-                      checked={formData.salaryStatus === 'daily'}
+                      checked={formData.salaryStatus === "daily"}
                       onChange={handleInputChange}
                       className="w-3.5 h-3.5 text-blue-500"
                     />
-                    <span className="text-xs text-gray-700 dark:text-gray-300">DAILY SALARY</span>
+                    <span className="text-xs text-gray-700 dark:text-gray-300">
+                      DAILY SALARY
+                    </span>
                   </label>
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">MIDDLE NAME</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  MIDDLE NAME
+                </label>
                 <input
                   type="text"
                   name="middleName"
@@ -295,7 +330,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">NIC</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  NIC
+                </label>
                 <input
                   type="text"
                   name="nic"
@@ -306,7 +343,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">QUALIFICATIONS</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  QUALIFICATIONS
+                </label>
                 <input
                   type="text"
                   name="qualifications"
@@ -317,7 +356,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">CIVIL STATUS</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  CIVIL STATUS
+                </label>
                 <select
                   name="civilStatus"
                   value={formData.civilStatus}
@@ -337,13 +378,16 @@ const Empregister = ({ setCurrentPage }) => {
 
         {/* Additional Details Section */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 border border-gray-200 dark:border-gray-700">
-          <h3 className="text-xs font-bold text-gray-800 dark:text-white mb-3">ADDITIONAL DETAILS</h3>
+          <h3 className="text-xs font-bold text-gray-800 dark:text-white mb-3">
+            ADDITIONAL DETAILS
+          </h3>
           <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-            
             {/* Left Column */}
             <div className="space-y-3">
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">EPF NO</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  EPF NO
+                </label>
                 <input
                   type="text"
                   name="epfNo"
@@ -354,7 +398,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">CATEGORY</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  CATEGORY
+                </label>
                 <select
                   name="category2"
                   value={formData.category2}
@@ -369,7 +415,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">JOIN DATE</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  JOIN DATE
+                </label>
                 <input
                   type="date"
                   name="joinDate"
@@ -380,7 +428,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">LEAVES</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  LEAVES
+                </label>
                 <input
                   type="number"
                   name="leaves"
@@ -392,7 +442,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">BANK</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  BANK
+                </label>
                 <select
                   name="bank"
                   value={formData.bank}
@@ -409,7 +461,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">BRANCH</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  BRANCH
+                </label>
                 <select
                   name="branch"
                   value={formData.branch}
@@ -424,7 +478,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">ACCOUNT NO</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  ACCOUNT NO
+                </label>
                 <input
                   type="text"
                   name="accountNo"
@@ -435,7 +491,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">INCENTIVE</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  INCENTIVE
+                </label>
                 <input
                   type="number"
                   name="incentive"
@@ -447,7 +505,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">SPECIAL INCENTIVE</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  SPECIAL INCENTIVE
+                </label>
                 <input
                   type="number"
                   name="specialIncentive"
@@ -459,7 +519,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">EXAMINING INCENTIVE</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  EXAMINING INCENTIVE
+                </label>
                 <input
                   type="number"
                   name="examiningIncentive"
@@ -471,7 +533,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">TRANSPORT FEE</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  TRANSPORT FEE
+                </label>
                 <input
                   type="number"
                   name="transportFee"
@@ -486,7 +550,9 @@ const Empregister = ({ setCurrentPage }) => {
             {/* Right Column */}
             <div className="space-y-3">
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">SALARY TYPES</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  SALARY TYPES
+                </label>
                 <select
                   name="salaryType"
                   value={formData.salaryType}
@@ -501,7 +567,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">DEPARTMENT</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  DEPARTMENT
+                </label>
                 <select
                   name="department"
                   value={formData.department}
@@ -518,7 +586,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">RESIGN DATE</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  RESIGN DATE
+                </label>
                 <input
                   type="date"
                   name="resignDate"
@@ -529,7 +599,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">REMARKS</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  REMARKS
+                </label>
                 <textarea
                   name="remarks"
                   value={formData.remarks}
@@ -540,7 +612,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">BANK CODE</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  BANK CODE
+                </label>
                 <input
                   type="text"
                   name="bankCode"
@@ -551,7 +625,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">BRANCH CODE</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  BRANCH CODE
+                </label>
                 <input
                   type="text"
                   name="branchCode"
@@ -562,7 +638,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">BASIC SALARY</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  BASIC SALARY
+                </label>
                 <input
                   type="number"
                   name="basicSalary"
@@ -574,7 +652,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">BUDGET ALLOWANCE</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  BUDGET ALLOWANCE
+                </label>
                 <input
                   type="number"
                   name="budgetAllowance"
@@ -586,7 +666,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">SERVICE INCENTIVE</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  SERVICE INCENTIVE
+                </label>
                 <input
                   type="number"
                   name="serviceIncentive"
@@ -598,7 +680,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">ADJUSTMENT</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  ADJUSTMENT
+                </label>
                 <input
                   type="number"
                   name="adjustment"
@@ -610,7 +694,9 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">ATTENDANCE BONUS</label>
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  ATTENDANCE BONUS
+                </label>
                 <input
                   type="number"
                   name="attendanceBonus"
@@ -627,7 +713,9 @@ const Empregister = ({ setCurrentPage }) => {
         {/* Dynamic Incentives Section */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-xs font-bold text-gray-800 dark:text-white">DYNAMIC INCENTIVES</h3>
+            <h3 className="text-xs font-bold text-gray-800 dark:text-white">
+              DYNAMIC INCENTIVES
+            </h3>
             <button
               type="button"
               onClick={addDynamicIncentive}
@@ -659,14 +747,26 @@ const Empregister = ({ setCurrentPage }) => {
                     type="text"
                     placeholder="Incentive Name"
                     value={incentive.name}
-                    onChange={(e) => updateDynamicIncentive(incentive.id, 'name', e.target.value)}
+                    onChange={(e) =>
+                      updateDynamicIncentive(
+                        incentive.id,
+                        "name",
+                        e.target.value
+                      )
+                    }
                     className="flex-1 px-2.5 py-1.5 text-xs bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                   />
                   <input
                     type="number"
                     placeholder="Amount"
                     value={incentive.amount}
-                    onChange={(e) => updateDynamicIncentive(incentive.id, 'amount', e.target.value)}
+                    onChange={(e) =>
+                      updateDynamicIncentive(
+                        incentive.id,
+                        "amount",
+                        e.target.value
+                      )
+                    }
                     className="w-32 px-2.5 py-1.5 text-xs bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                   />
                   <button
@@ -687,50 +787,58 @@ const Empregister = ({ setCurrentPage }) => {
           <div className="grid grid-cols-4 gap-4">
             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
               <div className="flex items-center justify-between mb-1">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   name="epfAllowed"
                   checked={formData.epfAllowed}
                   onChange={handleInputChange}
-                  className="w-3.5 h-3.5" 
+                  className="w-3.5 h-3.5"
                 />
-                <span className="text-xs font-medium text-gray-600 dark:text-gray-400">EPF ALLOWED</span>
+                <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                  EPF ALLOWED
+                </span>
               </div>
             </div>
             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
               <div className="flex items-center justify-between mb-1">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   name="leaveAllowed"
                   checked={formData.leaveAllowed}
                   onChange={handleInputChange}
-                  className="w-3.5 h-3.5" 
+                  className="w-3.5 h-3.5"
                 />
-                <span className="text-xs font-medium text-gray-600 dark:text-gray-400">LEAVE ALLOWED</span>
+                <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                  LEAVE ALLOWED
+                </span>
               </div>
             </div>
             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
               <div className="flex items-center justify-between mb-1">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   name="inactive"
                   checked={formData.inactive}
                   onChange={handleInputChange}
-                  className="w-3.5 h-3.5" 
+                  className="w-3.5 h-3.5"
                 />
-                <span className="text-xs font-medium text-gray-600 dark:text-gray-400">INACTIVE</span>
+                <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                  INACTIVE
+                </span>
               </div>
             </div>
             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
               <div className="flex items-center justify-between mb-1">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   name="etfEpfAllowed"
                   checked={formData.etfEpfAllowed}
                   onChange={handleInputChange}
-                  className="w-3.5 h-3.5" 
+                  className="w-3.5 h-3.5"
                 />
-                <span className="text-xs font-medium text-gray-600 dark:text-gray-400">ETF/EPF ALLOWED</span>
+                <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                  ETF/EPF ALLOWED
+                </span>
               </div>
             </div>
           </div>
@@ -740,7 +848,7 @@ const Empregister = ({ setCurrentPage }) => {
         <div className="flex justify-end space-x-2">
           <button
             type="button"
-            onClick={() => setCurrentPage('emplist')}
+            onClick={() => setCurrentPage("emplist")}
             className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-sm font-medium transition-colors"
           >
             Cancel
