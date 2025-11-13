@@ -450,7 +450,7 @@ const Empregister = ({ setCurrentPage }) => {
             ADDITIONAL DETAILS
           </h3>
           <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-            {/* Left Column */}
+            {/* Left  */}
             <div className="space-y-3">
               <div>
                 <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -615,7 +615,7 @@ const Empregister = ({ setCurrentPage }) => {
               </div>
             </div>
 
-            {/* Right Column */}
+            {/* Right */}
             <div className="space-y-3">
               <div>
                 <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -778,7 +778,7 @@ const Empregister = ({ setCurrentPage }) => {
           </div>
         </div>
 
-        {/* Dynamic Incentives Section */}
+        {/* Incentives Section */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-xs font-bold text-gray-800 dark:text-white">
@@ -850,7 +850,7 @@ const Empregister = ({ setCurrentPage }) => {
           )}
         </div>
 
-        {/* Summary Section */}
+        {/* End Section */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="grid grid-cols-4 gap-4">
             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
@@ -912,7 +912,7 @@ const Empregister = ({ setCurrentPage }) => {
           </div>
         </div>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <div className="flex justify-end space-x-2">
           <button
             type="button"

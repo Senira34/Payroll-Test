@@ -13,7 +13,7 @@ const Emplist = ({ setCurrentPage }) => {
   const [paginationPage, setPaginationPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
 
-  // Fetch employees from service
+  // Fetch employees 
   useEffect(() => {
     const fetchEmployees = async () => {
       setLoading(true);
@@ -30,14 +30,14 @@ const Emplist = ({ setCurrentPage }) => {
     fetchEmployees();
   }, []);
 
-  // Filter employees based on search
+  // Filter 
   const filteredEmployees = employees.filter(emp =>
     Object.values(emp).some(value =>
       value?.toString().toLowerCase().includes(searchTerm.toLowerCase())
     )
   );
 
-  // Pagination logic
+  // Pagination 
   const indexOfLastItem = paginationPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentEmployees = filteredEmployees.slice(indexOfFirstItem, indexOfLastItem);
@@ -55,13 +55,13 @@ const Emplist = ({ setCurrentPage }) => {
     <main className="flex-1 overflow-y-auto overflow-x-hidden p-3">
       <div className="w-full mx-auto">
         
-        {/* Header Section with Search */}
+        {/* Filter Component call */}
         <Filter searchTerm={searchTerm} setSearchTerm={setSearchTerm} setCurrentPage={setCurrentPage} />
 
-        {/* Action Buttons */}
+        {/* Actionbutton Component call */}
         <Actionbutton itemsPerPage={itemsPerPage} setItemsPerPage={setItemsPerPage} />
 
-        {/* Table with Pagination */}
+        {/* table Component call */}
         <Emptable employees={currentEmployees} formatCurrency={formatCurrency} loading={loading} />
         <Pagination 
           currentPage={paginationPage}
@@ -72,7 +72,7 @@ const Emplist = ({ setCurrentPage }) => {
           totalItems={filteredEmployees.length}
         />
 
-        {/* Stats Cards */}
+        {/* Cards Component call */}
         <Cards employees={employees} formatCurrency={formatCurrency} />
       </div>
     </main>
