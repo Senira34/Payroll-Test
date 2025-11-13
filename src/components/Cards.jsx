@@ -7,7 +7,7 @@ const Cards = ({ employees, formatCurrency }) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-4 md:mt-6">
-      <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-6 text-white shadow-lg">
+      <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-3 text-white shadow-lg">
         <div className="flex items-center justify-between mb-0.5">
           <Users className="w-5 h-5 opacity-80" />
           <span className="text-base font-bold">{employees.length}</span>
