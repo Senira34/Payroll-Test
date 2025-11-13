@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Upload, Plus, X, ArrowLeft } from "lucide-react";
+import employeeService from '../services/employeeService';
 
 const Empregister = ({ setCurrentPage }) => {
   const [formData, setFormData] = useState({
@@ -40,6 +41,8 @@ const Empregister = ({ setCurrentPage }) => {
     adjustment: "",
     transportFee: "",
     attendanceBonus: "",
+    dailySalary: "",
+    designation: "",
     epfAllowed: false,
     leaveAllowed: false,
     inactive: false,
@@ -48,6 +51,7 @@ const Empregister = ({ setCurrentPage }) => {
 
   const [dynamicIncentives, setDynamicIncentives] = useState([]);
   const [profileImage, setProfileImage] = useState(null);
+  const [saving, setSaving] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -87,12 +91,76 @@ const Empregister = ({ setCurrentPage }) => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    console.log("Dynamic Incentives:", dynamicIncentives);
-    alert("Employee saved successfully!");
-    setCurrentPage("emplist");
+    setSaving(true);
+    
+    try {
+      // Add employee to the service
+      const newEmployee = await employeeService.addEmployee(formData);
+      
+      console.log("Employee saved:", newEmployee);
+      console.log("Dynamic Incentives:", dynamicIncentives);
+      
+      alert("Employee saved successfully!");
+      
+      // Reset form
+      setFormData({
+        empNo: "",
+        displayName: "",
+        category: "",
+        salaryStatus: "monthly",
+        firstName: "",
+        middleName: "",
+        lastName: "",
+        nic: "",
+        email: "",
+        qualifications: "",
+        gender: "",
+        civilStatus: "",
+        contactNo: "",
+        contactNo2: "",
+        address: "",
+        epfNo: "",
+        salaryType: "",
+        category2: "",
+        department: "",
+        joinDate: "",
+        resignDate: "",
+        leaves: "",
+        remarks: "",
+        bank: "",
+        bankCode: "",
+        branch: "",
+        branchCode: "",
+        accountNo: "",
+        basicSalary: "",
+        incentive: "",
+        budgetAllowance: "",
+        specialIncentive: "",
+        serviceIncentive: "",
+        examiningIncentive: "",
+        adjustment: "",
+        transportFee: "",
+        attendanceBonus: "",
+        dailySalary: "",
+        designation: "",
+        epfAllowed: false,
+        leaveAllowed: false,
+        inactive: false,
+        etfEpfAllowed: false,
+      });
+      setDynamicIncentives([]);
+      setProfileImage(null);
+      
+      // Navigate back to employee list
+      setCurrentPage("emplist");
+    } catch (error) {
+      console.error("Error saving employee:", error);
+      alert("Error saving employee. Please try again.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -855,9 +923,10 @@ const Empregister = ({ setCurrentPage }) => {
           </button>
           <button
             type="submit"
-            className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-200"
+            disabled={saving}
+            className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Save Employee
+            {saving ? 'Saving...' : 'Save Employee'}
           </button>
         </div>
       </form>
