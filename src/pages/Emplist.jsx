@@ -209,18 +209,11 @@ const mockEmployeeData = [
   }
 ];
 
-import React, { useState, useEffect } from 'react';
-import Filter from '../components/Filter';
-import Actionbutton from '../components/Actionbutton';
-import Emptable from '../components/Emptable';
-import Pagination from '../components/Pagination';
-import Cards from '../components/Cards';
-
 const Emplist = ({ setCurrentPage }) => {
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
+  const [paginationPage, setPaginationPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
 
   // Simulate API call to fetch employees
@@ -244,7 +237,7 @@ const Emplist = ({ setCurrentPage }) => {
   );
 
   // Pagination logic
-  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfLastItem = paginationPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentEmployees = filteredEmployees.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filteredEmployees.length / itemsPerPage);
@@ -262,7 +255,7 @@ const Emplist = ({ setCurrentPage }) => {
       <div className="w-full mx-auto">
         
         {/* Header Section with Search */}
-        <Filter searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <Filter searchTerm={searchTerm} setSearchTerm={setSearchTerm} setCurrentPage={setCurrentPage} />
 
         {/* Action Buttons */}
         <Actionbutton itemsPerPage={itemsPerPage} setItemsPerPage={setItemsPerPage} />
@@ -270,9 +263,9 @@ const Emplist = ({ setCurrentPage }) => {
         {/* Table with Pagination */}
         <Emptable employees={currentEmployees} formatCurrency={formatCurrency} loading={loading} />
         <Pagination 
-          currentPage={currentPage}
+          currentPage={paginationPage}
           totalPages={totalPages}
-          setCurrentPage={setCurrentPage}
+          setCurrentPage={setPaginationPage}
           indexOfFirstItem={indexOfFirstItem}
           indexOfLastItem={indexOfLastItem}
           totalItems={filteredEmployees.length}

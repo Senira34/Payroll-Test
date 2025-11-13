@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Emplist from './pages/Emplist';
-import Empreg from './pages/Empreg';
+import Empregister from './pages/Empreg';
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -25,7 +25,7 @@ const App = () => {
         
           <Sidebar sidebarOpen={sidebarOpen} setCurrentPage={setCurrentPage} />
 
-          {currentPage === 'emplist' ? <Emplist setCurrentPage={setCurrentPage} /> : <Empreg setCurrentPage={setCurrentPage} />}
+          {currentPage === 'empreg' ? <Empregister setCurrentPage={setCurrentPage} /> : <Emplist setCurrentPage={setCurrentPage} />}
         </div>
 
        
