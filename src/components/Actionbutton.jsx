@@ -3,8 +3,8 @@ import { Settings, RefreshCw, Download } from 'lucide-react';
 
 const Actionbutton = ({ itemsPerPage, setItemsPerPage }) => {
   return (
-    <div className="flex items-center justify-between mb-4">
-      <div className="flex items-center space-x-2">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+      <div className="flex flex-wrap items-center gap-2">
         <button className="flex items-center space-x-2 px-4 py-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-medium transition-colors shadow-sm">
           <Settings className="w-4 h-4" />
           <span>Settings</span>

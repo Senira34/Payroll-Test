@@ -251,8 +251,8 @@ const Emplist = () => {
   };
 
   return (
-    <main className="flex-1 p-8">
-      <div className="max-w-[1600px] mx-auto">
+    <main className="flex-1 p-4 md:p-6 lg:p-8 overflow-x-hidden">
+      <div className="w-full mx-auto">
         
         {/* Header Section with Search */}
         <Filter searchTerm={searchTerm} setSearchTerm={setSearchTerm} />

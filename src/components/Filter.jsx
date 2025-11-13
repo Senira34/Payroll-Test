@@ -3,25 +3,25 @@ import { Search, Plus, Filter as FilterIcon, Users } from 'lucide-react';
 
 const Filter = ({ searchTerm, setSearchTerm }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 mb-6 border border-gray-200 dark:border-gray-700">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 md:p-6 mb-4 md:mb-6 border border-gray-200 dark:border-gray-700">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4 md:mb-6">
         <div className="flex items-center space-x-3">
           <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-3 rounded-xl">
             <Users className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Employees</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Manage your workforce</p>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">Employees</h2>
+            <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Manage your workforce</p>
           </div>
         </div>
-        <button className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-200">
+        <button className="flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-200 text-sm md:text-base">
           <Plus className="w-5 h-5" />
           <span>Add Employee</span>
         </button>
       </div>
 
       {/* Search and Filters */}
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
         <div className="flex-1 min-w-[300px] relative">
           <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
