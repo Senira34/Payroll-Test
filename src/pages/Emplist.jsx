@@ -5,10 +5,11 @@ import Emptable from '../components/Emptable';
 import Pagination from '../components/Pagination';
 import Cards from '../components/Cards';
 import employeeService from '../services/employeeService';
+import employeeData from '../data/employees.json';
 
 const Emplist = ({ setCurrentPage }) => {
-  const [employees, setEmployees] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [employees, setEmployees] = useState(employeeData);
+  const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [paginationPage, setPaginationPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
